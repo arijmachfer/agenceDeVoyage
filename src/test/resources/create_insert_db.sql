@@ -1,5 +1,5 @@
 -- --------------------------------------------------------
--- Hôte :                        127.0.0.1
+-- HÃ´te :                        127.0.0.1
 -- Version du serveur:           5.7.20-log - MySQL Community Server (GPL)
 -- SE du serveur:                Win64
 -- HeidiSQL Version:             9.5.0.5196
@@ -19,21 +19,21 @@ USE `voyage`;
 -- Export de la structure de la table voyage. client
 CREATE TABLE IF NOT EXISTS `client` (
   `idClient` int(11) NOT NULL AUTO_INCREMENT,
-  `nbJourSéjour` int(11) NOT NULL DEFAULT '0',
+  `nbJourSejour` int(11) NOT NULL DEFAULT '0',
   `idVoyage` int(11) NOT NULL DEFAULT '0',
   `nomClient` varchar(50) DEFAULT NULL,
   `budget` varchar(50) DEFAULT NULL,
-  `varThématique` varchar(50) DEFAULT NULL,
+  `varThematique` varchar(50) DEFAULT NULL,
   `confort` varchar(50) DEFAULT NULL,
-  `activité` varchar(50) DEFAULT NULL,
+  `activite` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idClient`),
   KEY `FK_client_voyage` (`idVoyage`),
   CONSTRAINT `FK_client_voyage` FOREIGN KEY (`idVoyage`) REFERENCES `voyage` (`idVoyage`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Export de données de la table voyage.client : ~0 rows (environ)
+-- Export de donnÃ©es de la table voyage.client : ~2 rows (environ)
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` (`idClient`, `nbJourSéjour`, `idVoyage`, `nomClient`, `budget`, `varThématique`, `confort`, `activité`) VALUES
+INSERT INTO `client` (`idClient`, `nbJourSejour`, `idVoyage`, `nomClient`, `budget`, `varThematique`, `confort`, `activite`) VALUES
 	(1, 5, 1, 'arij', '3000', NULL, 'confortable', 'sport'),
 	(4, 4, 2, 'ali', '1000', NULL, 'non confortable', 'massage');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `destination` (
   PRIMARY KEY (`idDestination`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Export de données de la table voyage.destination : ~1 rows (environ)
+-- Export de donnÃ©es de la table voyage.destination : ~1 rows (environ)
 /*!40000 ALTER TABLE `destination` DISABLE KEYS */;
 INSERT INTO `destination` (`idDestination`, `nomDestination`) VALUES
 	(1, 'ile reunion');
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   PRIMARY KEY (`idHotel`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Export de données de la table voyage.hotel : ~2 rows (environ)
+-- Export de donnÃ©es de la table voyage.hotel : ~2 rows (environ)
 /*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
 INSERT INTO `hotel` (`idHotel`, `nomHotel`, `prixNuit`, `villeHotel`, `classement`) VALUES
 	(1, 'luse reunion', 275, 'saint gilles', '5'),
@@ -76,10 +76,10 @@ CREATE TABLE IF NOT EXISTS `site` (
   PRIMARY KEY (`idSite`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Export de données de la table voyage.site : ~0 rows (environ)
+-- Export de donnÃ©es de la table voyage.site : ~1 rows (environ)
 /*!40000 ALTER TABLE `site` DISABLE KEYS */;
 INSERT INTO `site` (`idSite`, `nomSite`, `villeSite`) VALUES
-	(1, '', '0');
+	(1, 'louvre', 'paris');
 /*!40000 ALTER TABLE `site` ENABLE KEYS */;
 
 -- Export de la structure de la table voyage. transport
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `transport` (
   PRIMARY KEY (`idTransport`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Export de données de la table voyage.transport : ~2 rows (environ)
+-- Export de donnÃ©es de la table voyage.transport : ~2 rows (environ)
 /*!40000 ALTER TABLE `transport` DISABLE KEYS */;
 INSERT INTO `transport` (`idTransport`, `moyenDeTransport`) VALUES
 	(1, 'autobus'),
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `voyage` (
   CONSTRAINT `FK_voyage_hotel` FOREIGN KEY (`idHotel`) REFERENCES `hotel` (`idHotel`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Export de données de la table voyage.voyage : ~2 rows (environ)
+-- Export de donnÃ©es de la table voyage.voyage : ~2 rows (environ)
 /*!40000 ALTER TABLE `voyage` DISABLE KEYS */;
 INSERT INTO `voyage` (`idVoyage`, `idHotel`, `idDestination`) VALUES
 	(1, 1, 1),
